@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # newton-candidate
 
 ## Getting Started
@@ -56,3 +57,6 @@ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keyc
 In case you are not able to run the https version of the app, you will have to download a specific version of Brave as their latest version doesn't accept non-https calls.
 The most up to date version that still had the changes we needed is this [one](https://github.com/brave/brave-browser/releases/tag/v1.24.86) and download the Brave-Browser-x64.dmg file.
 To run the application in non-HTTPS you'll have to remove the `--https` & `--cert ./ssl/local.newton.co.crt --key ./ssl/device.key` from the command before running for example `npm run dev`
+=======
+# newton-candidate-melissa
+>>>>>>> 6a75e1c36969ac7d721766836b365b38a10db173
