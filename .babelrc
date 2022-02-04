@@ -1,0 +1,30 @@
+{
+	"plugins": [
+		["babel-plugin-styled-components",
+			{
+				"displayName": true,
+				"fileName": false
+			}
+		]
+	],
+	"env": {
+		"server": {
+			"plugins": [
+				"react-imported-component/babel",
+				"babel-plugin-dynamic-import-node",
+				"@babel/plugin-syntax-dynamic-import"
+			]
+		},
+		"client": {
+			"plugins": [["react-imported-component/babel"], ["@babel/plugin-proposal-class-properties", { "loose": true }], ["@babel/plugin-proposal-private-methods", { "loose": true }]]
+		},
+		"test": {
+			"presets": ["@babel/env", "@babel/react"],
+			"plugins": [
+				"transform-es2015-modules-commonjs",
+				"dynamic-import-node",
+				["babel-plugin-styled-components", { "displayName": true }]
+			]
+		}
+	}
+}

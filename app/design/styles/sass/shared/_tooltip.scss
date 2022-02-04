@@ -1,0 +1,43 @@
+.tooltip {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	min-width: 0;
+	width: 0;
+	display: flex;
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+	background-color: #1f2039;
+	color: white;
+	opacity: 0;
+	align-items: center;
+	box-sizing: content-box;
+	transition: opacity 0.1s ease-in;
+
+	&Container {
+		white-space: nowrap;
+
+		> div {
+			color: $white;
+			position: relative;
+
+			> svg {
+				position: absolute;
+				width: 4px;
+				height: 4px;
+				top: 2px;
+				right: -6px;
+			}
+		}
+	}
+
+	&.hover {
+		@include br($desktop) {
+			padding: 16px 88px 16px 32px;
+			min-width: 100%;
+			width: auto;
+			opacity: 1;
+		}
+	}
+}

@@ -1,0 +1,68 @@
+.popup {
+	max-width: 100%;
+	background-color: #1f2039;
+	padding: 24px 32px 24px 40px;
+	margin: 0;
+	border-radius: 10px;
+	box-sizing: border-box;
+	position: relative;
+	box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.25);
+	animation: fade-up-popup 400ms cubic-bezier(0.64, 0.28, 0.4, 0.8);
+	margin-bottom: 16px;
+
+	@include br($mini) {
+		margin: 16px 0;
+	}
+
+	@include br($desktop) {
+		background-color: #141a2e;
+	}
+
+	&.dark {
+		background-color: #141a2e;
+	}
+
+	&-message {
+		color: white;
+
+		&-sub {
+			font-size: 14px;
+			color: #707180;
+			padding-top: 8px;
+		}
+	}
+
+	&-action {
+		color: #7375b6;
+		cursor: pointer;
+		padding-top: 8px;
+
+		&.unclicklable {
+			cursor: default;
+			&:hover {
+				color: #7375b6;
+			}
+		}
+
+		&:hover {
+			color: #615ca3;
+		}
+	}
+
+	&-icon {
+		width: 32px;
+		height: 32px;
+		border-radius: 100px;
+		background-color: #7375b6;
+		position: absolute;
+		left: -16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		> svg {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}

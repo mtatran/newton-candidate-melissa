@@ -1,0 +1,72 @@
+export const mockDetailsData = [
+	{
+		id: '4',
+		bank_account: {},
+		created: '2021-10-06T16:35:00.277033-04:00',
+		fee: '0.00000000',
+		from_amount: '10.00000000',
+		from_asset: 'CAD',
+		is_api: false,
+		quoted_asset_cad_price: '0.00000000',
+		reference: '',
+		to_amount: '0.00000000',
+		to_asset: '',
+		type: 'ADJUSTMENT'
+	},
+	{
+		id: '3',
+		bank_account: {},
+		created: '2021-10-27T19:53:05.498782-04:00',
+		fee: '50.00000000',
+		from_amount: '-150.000000000',
+		from_asset: 'BTC',
+		is_api: false,
+		quoted_asset_cad_price: '0.00000000',
+		reference: '0xc159f8f384b84b7028f91e4b44fad8c87a9010b47cb3e62ded0620e6cb0fb54b',
+		to_amount: '0.00000000',
+		to_asset: '',
+		type: 'WITHDRAWAL_COMPLETED'
+	},
+	{
+		id: '2',
+		bank_account: {},
+		created: '2021-11-16T11:24:08.355300-05:00',
+		fee: '0.00000000',
+		from_amount: '294.18947460',
+		from_asset: 'BTC',
+		is_api: false,
+		quoted_asset_cad_price: '0.00000000',
+		reference: '',
+		to_amount: '0.00000000',
+		to_asset: '',
+		type: 'DEPOSITED'
+	},
+	{
+		id: '1',
+		bank_account: {},
+		created: '2021-10-04T16:35:00.277033-04:00',
+		fee: '0.00000000',
+		from_amount: '25.00000000',
+		from_asset: 'CAD',
+		is_api: false,
+		quoted_asset_cad_price: '0.00000000',
+		reference: '',
+		to_amount: '0.00000000',
+		to_asset: '',
+		type: 'REFERRAL_REWARD'
+	},
+	{
+		id: '0',
+		bank_account: {},
+		created: '2021-11-19T20:12:22.309698-05:00',
+		fee: '0.00000000',
+		from_amount: '500.00000000',
+		from_asset: 'CAD',
+		is_api: false,
+		quoted_asset_cad_price: '1.48563000',
+		reference: '',
+		to_amount: '336.55755471',
+		to_asset: 'BTC',
+		type: 'TRADE'
+	}
+];

@@ -1,0 +1,82 @@
+.header {
+	width: auto;
+	display: flex;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	justify-content: flex-start;
+	padding: 8px;
+	opacity: 0;
+	transition: opacity 250ms ease-out;
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&.active {
+		opacity: 1;
+	}
+
+	&-button {
+		width: 88px;
+		height: 64px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		cursor: pointer;
+
+		> button {
+			animation: fade-in 500ms ease-out;
+			padding: 8px 16px;
+			background-color: rgba(255, 255, 255, 0.2);
+			border: none;
+			cursor: pointer;
+		}
+	}
+
+	&-mobile {
+		transition: transform 0.25s ease-out;
+		position: fixed;
+		z-index: 10;
+		left: 0;
+		top: 0;
+		width: 200px;
+		height: 100vh;
+		background-color: #f5cabf;
+		transform: translate3d(-200px, 0, 0);
+		padding: 16px;
+
+		&.open {
+			transform: translate3d(0, 0, 0);
+		}
+
+		> a {
+			display: block;
+			color: #291f6c;
+			text-decoration: none;
+			font-weight: 700;
+			margin-bottom: 8px;
+			cursor: pointer;
+		}
+	}
+
+	&-langs {
+		display: block;
+		color: #291f6c;
+		text-decoration: none;
+		font-weight: 700;
+		margin-bottom: 8px;
+		cursor: pointer;
+	}
+
+	&-nuke {
+		display: flex;
+		align-items: center;
+		color: #291f6c;
+		text-decoration: none;
+		font-weight: 700;
+		margin-bottom: 8px;
+		cursor: pointer;
+	}
+}

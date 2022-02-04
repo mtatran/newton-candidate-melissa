@@ -1,0 +1,45 @@
+/* Breakpoints */
+@mixin br($display) {
+	@media (min-width: $display) {
+		@content;
+	}
+}
+
+@mixin brh($display) {
+	@media (max-height: $display) {
+		@content;
+	}
+}
+
+@mixin installed() {
+	@media all and (display-mode: standalone) {
+		@content;
+	}
+}
+
+@mixin print {
+	@media print {
+		@content;
+	}
+}
+
+/* Create Animation */
+@mixin keyframe($animation_name) {
+	@keyframes #{$animation_name} {
+		@content;
+	}
+	@-moz-keyframes #{$animation_name} {
+		@content;
+	}
+	@-webkit-keyframes #{$animation_name} {
+		@content;
+	}
+}
+
+@function darker($color, $amount) {
+	@return saturate(darken($color, $amount), $amount / 3);
+}
+
+@function lighter($color, $amount) {
+	@return desaturate(lighten($color, $amount), $amount / 3);
+}

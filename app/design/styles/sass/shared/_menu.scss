@@ -1,0 +1,143 @@
+.menu {
+	box-shadow: -10px 0 10px 6px rgba(0, 0, 0, 0.08), -10px 0 10px 0.5px rgba(0, 0, 0, 0.16);
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	@extend %scrollbar;
+
+	@include br($tablet) {
+		width: 560px;
+	}
+
+	@include br($desktop) {
+		width: 420px;
+	}
+
+	&-overlay {
+		transition: opacity 400ms ease-out;
+		&.active {
+			position: absolute;
+			left: 0;
+			display: flex;
+			justify-content: flex-end;
+			width: 100vw;
+			height: 100vh;
+			opacity: 1;
+
+			@include br($tablet) {
+				width: 100%;
+				height: 100%;
+			}
+
+			@include br($desktop) {
+				width: 100vw;
+				height: 100vh;
+			}
+		}
+	}
+
+	&Background {
+		width: 0;
+		transition: opacity 400ms ease-out;
+		opacity: 0;
+
+		&.active {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			opacity: 1;
+			min-height: 100vh;
+			height: auto;
+			width: 100vw;
+			background-color: #141a2e;
+
+			@include br($tablet) {
+				background-color: #464a60;
+			}
+
+			@include br($desktop) {
+				background-color: rgba(26, 21, 53, 0.657);
+			}
+		}
+
+		&.closing {
+			opacity: 0;
+		}
+	}
+
+	> h1 {
+		font-size: 28px;
+		font-weight: 400;
+		padding-left: 32px;
+
+		@include br($desktop) {
+			display: none;
+		}
+	}
+
+	&-close {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		max-height: 80px;
+		padding: 32px 32px 32px 28px;
+		cursor: pointer;
+
+		@include br($desktop) {
+			display: block;
+			max-height: 48px;
+			max-width: 48px;
+		}
+
+		&:active {
+			> svg {
+				opacity: 0.5;
+			}
+		}
+
+		> svg {
+			display: block;
+			width: 18px;
+			height: 18px;
+		}
+	}
+
+	&-list {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		width: auto;
+		height: 100%;
+
+		@include br($desktop) {
+			padding-top: 16px;
+		}
+
+		&-contact {
+			//IE11 specific css
+			@media all and (-ms-high-contrast: none) {
+				@include br($desktop) {
+					max-width: 100%;
+				}
+			}
+		}
+
+		&-item {
+			padding: 48px 16px;
+			display: block;
+			cursor: pointer;
+
+			@include br($desktop) {
+				padding: 16px;
+			}
+		}
+	}
+}

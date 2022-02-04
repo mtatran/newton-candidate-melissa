@@ -1,0 +1,257 @@
+.signin {
+	width: 100%;
+	background-color: #141a2e;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	min-height: 100vh;
+
+	@include br($desktop) {
+		height: 100vh;
+		justify-content: center;
+		margin-top: 0;
+	}
+
+	&Container {
+		padding: 48px 0 32px 0;
+		width: 100%;
+		min-height: 100%;
+		height: 100vh;
+		background-color: #141a2e;
+		max-width: 600px;
+		display: flex;
+		flex-direction: column;
+
+		@include br($tablet) {
+			display: block;
+			min-height: 100vh;
+			height: auto;
+			overflow: visible;
+		}
+
+		@include br($desktop) {
+			overflow: hidden;
+			height: 100vh;
+			max-width: 800px;
+			min-height: 0;
+			margin-bottom: 0;
+			box-shadow: none;
+			border-radius: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			background-color: #141a2e;
+		}
+	}
+
+	&-gradient {
+		display: block;
+		width: 100vw;
+		height: 0;
+
+		> div {
+			position: relative;
+			top: 2px;
+			left: -100%;
+			width: 200vw;
+			height: 60px;
+			background-image: linear-gradient(to bottom, #1e2137, #141a2e);
+			@include br($desktop) {
+				display: none;
+			}
+		}
+	}
+
+	&-info {
+		padding: 0 24px;
+		margin-bottom: 32px;
+		@include br($desktop) {
+			margin-bottom: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 440px;
+			flex: 1 1 auto;
+			padding: 0;
+		}
+
+		&Container {
+			display: block;
+			@include br($desktop) {
+				position: relative;
+				bottom: 48px;
+				max-width: 400px;
+				padding: 32px;
+				border-radius: 10px;
+				background-color: #141a2e;
+			}
+		}
+
+		&-desc {
+			display: none;
+			padding-left: 16px;
+			margin-bottom: 32px;
+			color: #7375b6;
+
+			@include br($desktop) {
+				display: block;
+				font-size: 28px;
+				font-weight: bold;
+			}
+		}
+
+		&-title {
+			font-size: 28px;
+			font-weight: bold;
+			color: white;
+			line-height: 30px;
+			letter-spacing: -0.5px;
+			padding-left: 16px;
+			margin-bottom: 8px;
+		}
+
+		&-actions {
+			padding-left: 16px;
+			padding-right: 16px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			> span {
+				display: block;
+				font-size: 18px;
+				font-weight: 400;
+				color: #2fe1b9;
+				line-height: 24px;
+				@include br($desktop) {
+					color: white;
+				}
+			}
+
+			div {
+				display: none;
+
+				@include br($desktop) {
+					display: block;
+				}
+
+				&.active {
+					transform: rotate(180deg);
+				}
+
+				svg {
+					path {
+						stroke: #2fe1b9;
+					}
+				}
+			}
+		}
+	}
+
+	&-actions {
+		height: 100%;
+
+		@include br($tablet) {
+			height: auto;
+		}
+
+		@include br($desktop) {
+			width: 440px;
+			flex: 1 1 auto;
+			display: none;
+
+			&.active {
+				display: block;
+			}
+		}
+
+		&Container {
+			height: 100%;
+
+			@include br($tablet) {
+				height: auto;
+			}
+			@include br($desktop) {
+				z-index: 4;
+				width: 50vw;
+				height: 100vh;
+				max-width: none;
+				position: absolute;
+				top: 0;
+				right: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				background-color: #24263b;
+				box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.14);
+			}
+		}
+
+		&-wrapper {
+			height: 100%;
+			@include br($tablet) {
+				height: auto;
+			}
+			@include br($desktop) {
+				width: 50%;
+				min-width: 420px;
+				max-width: 420px;
+				margin-left: 16px;
+				min-height: 420px;
+			}
+		}
+	}
+
+	&-tabs {
+		display: block;
+		width: 100%;
+		height: auto;
+		padding: 0 8px;
+
+		&Container {
+			display: flex;
+			justify-content: space-around;
+			width: 100%;
+			height: auto;
+
+			> a {
+				display: flex;
+				justify-content: flex-start;
+				flex-direction: column;
+				align-items: center;
+				width: auto;
+				padding: 8px;
+				cursor: pointer;
+				text-decoration: none;
+
+				&.active {
+					cursor: default;
+					&::after {
+						content: '';
+						position: relative;
+						top: 10px;
+						bottom: 0;
+						display: block;
+						width: calc(100% + 16px);
+						min-height: 2px;
+						height: 2px;
+						border-radius: 5px;
+						background-color: #7375b6;
+						transform: translateX(0);
+					}
+				}
+
+				> span {
+					font-size: 16px;
+					line-height: 1;
+					font-weight: 300;
+					color: white;
+					white-space: nowrap;
+					letter-spacing: 0.5px;
+				}
+			}
+		}
+	}
+}

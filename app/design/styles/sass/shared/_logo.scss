@@ -1,0 +1,20 @@
+.logo {
+	display: none;
+	position: relative;
+
+	@include br($desktop) {
+		display: inline-block;
+		padding: 32px;
+		cursor: pointer;
+
+		> svg {
+			width: 92px;
+			height: auto;
+		}
+	}
+
+	> svg {
+		width: 24px;
+		height: 24px;
+	}
+}

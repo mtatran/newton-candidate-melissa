@@ -1,0 +1,19 @@
+{
+    "devtools_port": 9090,
+    "startup_app": {
+        "name": "Newton Webapp",
+        "description": "Trade through Newton on the Web and Desktop",
+        "url": "http://localhost:1234",
+        "uuid": "OpenfinPOC-htudpipksq",
+        "autoShow": true
+    },
+    "runtime": {
+        "arguments": "",
+        "version": "beta"
+    },
+    "shortcut": {
+        "company": "Newton",
+        "description": "Free cryptocurrency trading for Canadians.",
+        "name": "Newton"
+    }
+}

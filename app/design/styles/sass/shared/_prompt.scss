@@ -1,0 +1,227 @@
+.prompt {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+
+	&.short {
+		height: auto !important;
+	}
+
+	&.open {
+		z-index: 2;
+		position: relative;
+		bottom: auto;
+		left: auto;
+	}
+
+	&.bottom {
+		bottom: 0;
+		left: 0;
+	}
+
+	&.active {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+
+		@include br($desktop) {
+			height: 100vh;
+		}
+	}
+
+	&Container {
+		background-color: #24253d;
+		width: 100%;
+		border-radius: 20px 20px 0 0;
+		padding: 32px 16px 52px;
+		top: 20px;
+		position: relative;
+		box-shadow: 0px -20px 50px 0px rgba(20, 26, 46, 0.55), 0px -5px 10px 0px #141a2e;
+
+		&.referral {
+			box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.1);
+			padding-bottom: 16px;
+		}
+
+		&.top {
+			top: 0;
+		}
+
+		@include br($mini) {
+			padding: 32px 32px 52px;
+		}
+
+		@include br($tablet) {
+			padding: 24px 16px 52px;
+		}
+
+		@include br($desktop) {
+			background-color: #24253d;
+		}
+	}
+
+	&-close {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+
+		@include br($tablet) {
+			padding-right: 32px;
+			padding-bottom: 16px;
+		}
+
+		@include br($desktop) {
+			padding-bottom: 0;
+			padding-right: 0;
+		}
+
+		> span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			height: 24px;
+			width: 24px;
+			position: relative;
+			left: -8px;
+			border-radius: 5px;
+			-webkit-transition: 200ms ease-out;
+			-moz-transition: 200ms ease-out;
+			-o-transition: 200ms ease-out;
+			transition: 200ms ease-out;
+			background-color: transparent;
+
+			@include br($desktop) {
+				padding-top: 0px;
+			}
+
+			&:hover {
+				@include br($desktop) {
+					background-color: #193f4a;
+					box-shadow: 0px 0px 0px 2px #193f4a;
+					border-radius: 1px;
+				}
+			}
+
+			> svg {
+				display: block;
+				width: 14px;
+				height: 14px;
+			}
+		}
+	}
+
+	&Message,
+	&Comment {
+		display: flex;
+		flex-direction: column;
+		letter-spacing: 0.5px;
+		padding: 32px 0 0;
+
+		@include br($tablet) {
+			padding: 32px 64px 0 64px;
+		}
+
+		@include br($desktop) {
+			padding: 32px 32px 0 32px;
+		}
+
+		&.center {
+			align-items: center;
+		}
+
+		&.bottom {
+			padding-bottom: 32px;
+			@include br($tablet) {
+				padding-bottom: 32px;
+			}
+
+			@include br($desktop) {
+				padding-bottom: 32px;
+			}
+		}
+
+		&.topless {
+			padding-top: 16px;
+		}
+	}
+
+	&-icon {
+		> svg {
+			width: 68px;
+			height: 68px;
+		}
+	}
+
+	&-header {
+		font-size: 21px;
+		letter-spacing: -0.2px;
+		font-weight: 700;
+		color: white;
+		padding-top: 8px;
+		padding-bottom: 16px;
+		text-align: center;
+
+		&.left {
+			padding-left: 0;
+		}
+
+		&.failed {
+			padding-bottom: 0;
+		}
+	}
+
+	&-subheader {
+		color: $light-gray;
+		font-size: 14px;
+		line-height: 21px;
+		text-align: center;
+		padding: 0 8px;
+
+		> span {
+			cursor: pointer;
+			color: $light-purple;
+		}
+
+		&.successful,
+		&.failed {
+			padding-bottom: 32px;
+			padding-left: 0;
+			padding-top: 8px;
+		}
+	}
+
+	&-desc {
+		font-size: 14px;
+		line-height: 21px;
+		font-weight: 400;
+		color: #707180;
+		text-align: center;
+		padding: 16px 16px;
+
+		&.failed {
+			padding-bottom: 32px;
+		}
+	}
+
+	&-link {
+		color: #7375b6;
+		text-decoration: none;
+		cursor: pointer;
+		text-align: center;
+		padding-top: 8px;
+
+		&:hover {
+			background-color: transparent;
+			color: #615ca3;
+		}
+	}
+
+	&-actions {
+		display: flex;
+		justify-content: center;
+		margin-top: 32px;
+		margin-bottom: 32px;
+	}
+}

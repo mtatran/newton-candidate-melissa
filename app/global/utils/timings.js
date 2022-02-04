@@ -1,0 +1,22 @@
+export const Timings = {
+	feedback: 3000,
+	loadingExit: 500,
+	loadingMin: 1000,
+	fetchingMin: 500,
+	slowThrottle: 2500,
+	trackClosingMenu: 100,
+	closeDrawer: 250,
+	closePrompt: 200,
+	closeWaitPrompt: 750,
+	closeErrorDialog: 10,
+	installApps: 10000,
+	closeOnline: 250,
+	release: 1100,
+	priceSpot: 1000,
+	toggleDialog: 500,
+	closeSelect: 750,
+	submitTimeout: 500,
+	copy: 2000,
+	showTimeoutMessage: 15000,
+	check2faInterval: 5000
+};

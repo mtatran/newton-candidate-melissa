@@ -1,0 +1,1346 @@
+.dashboard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	min-height: 100%;
+
+	@include br($desktop) {
+		margin-bottom: 0;
+		min-height: 100vh;
+	}
+
+	&Container {
+		display: block;
+		width: 100%;
+		padding: 0 0 48px;
+		min-height: 100%;
+		background-color: #141a2e;
+
+		@include br($tablet) {
+			min-height: 100vh;
+			padding-top: 0;
+			padding-bottom: 96px;
+		}
+
+		@include br($desktop) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-width: 100%;
+			border-radius: 0;
+			box-shadow: none;
+			background-color: transparent;
+			padding: 0;
+			margin-bottom: 0;
+			min-height: 100%;
+		}
+
+		> h1 {
+			font-size: 28px;
+			font-weight: 700;
+			color: white;
+			line-height: 30px;
+			margin-bottom: 16px;
+		}
+	}
+	&Wrapper {
+		display: block;
+		width: 100%;
+		padding: 0 32px 0 32px;
+
+		@include br($tablet) {
+			padding: 0 64px;
+		}
+
+		@include br($desktop) {
+			padding: 0;
+		}
+	}
+
+	&-gradient {
+		display: block;
+		width: 100%;
+		height: 0;
+
+		&-logo {
+			display: none;
+
+			@include br($desktop) {
+				position: relative;
+				right: 32px;
+				top: 18px;
+				display: flex;
+				justify-content: flex-end;
+				margin: 0 auto;
+				width: 100%;
+				height: 0;
+				> svg {
+					display: inline-block;
+					width: 400px;
+					height: 90px;
+					transform: translateY(-100%);
+				}
+			}
+		}
+
+		&-fill {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 80px;
+			background-image: linear-gradient(to bottom, #1e2137, #141a2e);
+
+			@include br($desktop) {
+				top: 8px;
+			}
+		}
+	}
+
+	&-welcome {
+		padding-top: 32px;
+		padding-bottom: 32px;
+
+		@include br($tablet) {
+			padding-top: 48px;
+			padding-bottom: 48px;
+		}
+
+		@include br($desktop) {
+			padding-top: 0;
+			padding-bottom: 0;
+			width: 100vw;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			z-index: 1;
+		}
+
+		&.active {
+			padding-top: 18px;
+			padding-bottom: 16px;
+
+			@include br($desktop) {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+
+		&-wrapper {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			padding: 0 32px;
+
+			@include br($tablet) {
+				padding: 0 64px;
+			}
+
+			@include br($desktop) {
+				flex-direction: row;
+				align-items: center;
+				height: 80px;
+				max-width: 1100px;
+				width: 100%;
+				padding: 16px 32px 8px 32px;
+			}
+
+			&.active {
+				justify-content: center;
+
+				@include br($desktop) {
+					justify-content: flex-start;
+				}
+			}
+
+			&-logo {
+				display: none;
+				padding-right: 16px;
+				cursor: pointer;
+
+				> svg {
+					g {
+						fill: #2fe1b9;
+					}
+				}
+
+				@include br($desktop) {
+					display: block;
+				}
+			}
+
+			h1 {
+				display: block;
+				font-size: 28px;
+				font-weight: 700;
+				color: white;
+				line-height: 30px;
+				opacity: 1;
+				transition: opacity 0.25s ease-in;
+				overflow: hidden;
+
+				@include br($desktop) {
+					line-height: 26px;
+					margin-bottom: 0;
+				}
+
+				&.active {
+					opacity: 0;
+					transition: none;
+
+					> span {
+						white-space: nowrap;
+						&:nth-child(2) {
+							display: none;
+						}
+					}
+				}
+
+				> span {
+					display: block;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					line-height: 1.2;
+
+					@include br($tablet) {
+						display: inline;
+					}
+				}
+
+				&.small {
+					position: absolute;
+					left: 0;
+					right: 0;
+					font-size: 21px;
+					text-align: center;
+					opacity: 0;
+					transition: none;
+					font-size: 16px;
+					font-weight: 400;
+					max-width: 55%;
+					margin: 0 auto;
+					line-height: 20px;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					> span {
+						width: 100%;
+						display: inline;
+						overflow: hidden;
+						line-height: 1.2;
+						&:nth-child(2) {
+							padding-top: 0;
+							display: inline;
+						}
+					}
+
+					&.active {
+						transition: opacity 0.25s ease-in;
+						opacity: 1;
+					}
+
+					@include br($desktop) {
+						display: none;
+					}
+				}
+			}
+			&-greetings {
+				&.greet {
+					width: calc(100% - 64px);
+
+					@include br($mini) {
+						width: calc(100% - 32px);
+					}
+
+					@include br($tablet) {
+						padding: 16px 8px 16px 0;
+						width: 100%;
+					}
+				}
+			}
+
+			&-username {
+				padding-top: 8px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				line-height: 1.2;
+
+				@include br($tablet) {
+					padding: 16px 8px 16px 0;
+				}
+			}
+		}
+	}
+
+	&-tabs {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0 16px 8px 16px;
+
+		@include br($mini) {
+			justify-content: flex-start;
+			padding: 0 40px 8px 40px;
+		}
+
+		@include br($tablet) {
+			padding: 0 72px 8px 72px;
+		}
+
+		@include br($desktop) {
+			display: none;
+			padding: 0 32px 8px 8px;
+		}
+
+		&-item {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 0;
+			cursor: pointer;
+
+			@include br($mini) {
+				margin-right: 24px;
+			}
+
+			&.right::after {
+				transition: transform 0.25s ease-out;
+				transform: translateX(45px);
+			}
+
+			&.left::after {
+				transition: transform 0.25s ease-out;
+				transform: translateX(-45px);
+			}
+
+			&.active {
+				color: white;
+				pointer-events: none;
+				&.right::after {
+					animation: slide-left 0.1s ease-in-out;
+				}
+				&.left::after {
+					animation: slide-right 0.1s ease-in-out;
+				}
+				&::after {
+					content: '';
+					position: relative;
+					top: 8px;
+					bottom: 0;
+					display: block;
+					width: calc(100% + 16px);
+					min-height: 2px;
+					height: 2px;
+					border-radius: 5px;
+					background-color: #7375b6;
+					transform: translateX(0);
+				}
+			}
+
+			&:active {
+				> span {
+					color: #707180;
+				}
+			}
+
+			> span {
+				font-size: 12px;
+				line-height: 16px;
+				font-weight: 400;
+				color: white;
+				letter-spacing: 1px;
+				padding: 0 8px;
+
+				@include br($tablet) {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	&-wallet {
+		display: block;
+		width: 100%;
+		padding: 32px 0 0 0;
+
+		@include br($desktop) {
+			display: flex;
+			justify-content: space-between;
+			padding: 72px 32px 0 32px;
+		}
+
+		&.empty {
+			@include br($mini) {
+				padding-bottom: 16px;
+			}
+			@include br($tablet) {
+				padding-bottom: 32px;
+			}
+		}
+
+		&-balance {
+			display: block;
+			width: 100%;
+
+			> h4 {
+				font-size: 18px;
+				line-height: 24px;
+				font-weight: 400;
+				color: #2fe1b9;
+			}
+
+			> h2 {
+				font-size: 36px;
+				line-height: 48px;
+				font-weight: 700;
+				color: #fff;
+			}
+		}
+
+		&-weights {
+			display: flex;
+			width: 100%;
+			max-width: 325px;
+		}
+	}
+
+	&-slider {
+		padding-top: 40px;
+
+		&.scroll {
+			padding-top: 8px;
+		}
+
+		&Display {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 0;
+		}
+
+		&-arrows {
+			display: none;
+
+			@include br($tablet) {
+				display: flex;
+				justify-content: flex-end;
+				padding-right: 32px;
+			}
+
+			&-back {
+				display: flex;
+				justify-content: center;
+				height: 32px;
+				width: 32px;
+				transform: rotate(90deg);
+				cursor: pointer;
+
+				> svg {
+					height: 28px;
+					width: 16px;
+					transition: transform 0.25s;
+				}
+
+				&:hover {
+					transform: rotate(90deg);
+
+					> svg {
+						transform: translateY(1px);
+					}
+				}
+
+				&.disabled {
+					cursor: default;
+
+					&:hover {
+						> svg {
+							transform: translateY(0);
+						}
+					}
+				}
+			}
+
+			&-forward {
+				display: flex;
+				justify-content: center;
+				height: 32px;
+				width: 32px;
+				transform: rotate(270deg);
+				cursor: pointer;
+
+				> svg {
+					height: 28px;
+					width: 16px;
+					transition: transform 0.25s;
+				}
+
+				&:hover {
+					transform: rotate(270deg);
+
+					> svg {
+						transform: translateY(1px);
+					}
+				}
+
+				&.disabled {
+					cursor: default;
+
+					&:hover {
+						> svg {
+							transform: translateY(0);
+						}
+					}
+				}
+			}
+		}
+	}
+	&-shadow {
+		&-left {
+			position: absolute;
+			left: 0;
+			width: 64px;
+			height: 100%;
+			background-image: linear-gradient(270deg, transparent 0%, #141a2e 85%);
+
+			&.end {
+				display: none;
+			}
+		}
+		&-right {
+			right: 0;
+			position: absolute;
+			width: 64px;
+			height: 100%;
+			background-image: linear-gradient(90deg, transparent 0%, #141a2e 75%);
+
+			@include br($desktop) {
+				right: 16px;
+			}
+
+			&.end {
+				display: none;
+			}
+		}
+	}
+	&-portfolio {
+		position: relative;
+		display: inline-flex;
+		width: 100%;
+		margin: 16px 32px;
+		padding: 3px;
+		overflow: auto;
+		overflow-x: scroll;
+		flex-wrap: nowrap;
+		align-items: center;
+
+		@extend %scrollbar;
+
+		@include br($tablet) {
+			margin: 16px 64px 32px;
+		}
+
+		@include br($desktop) {
+			margin: 16px 48px 32px 24px;
+			justify-content: flex-start;
+			overflow-x: auto;
+		}
+
+		&-coins {
+			display: inline-block;
+			min-width: 148px;
+			width: 148px;
+			max-width: 148px;
+			min-height: 0;
+			height: 100px;
+			margin-right: 16px;
+
+			@include br($desktop) {
+				flex: 1 1 auto;
+				max-width: 230px;
+				min-width: 220px;
+				width: 100%;
+				height: 150px;
+				margin-left: 0;
+			}
+
+			&.hide-desktop {
+				@include br($desktop) {
+					display: none;
+				}
+			}
+
+			&.all {
+				display: inline-block !important;
+
+				@include br($desktop) {
+					display: inline-block !important;
+				}
+			}
+
+			&.desktop {
+				display: none !important;
+
+				@include br($desktop) {
+					display: inline-block !important;
+				}
+			}
+
+			&.none {
+				display: none !important;
+
+				@include br($desktop) {
+					display: none !important;
+				}
+			}
+
+			&-empty {
+				display: inline-flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				height: 100%;
+				border: 1px dashed #2fe1b9;
+				border-radius: 8px;
+				padding: 16px;
+				cursor: pointer;
+
+				@include br($desktop) {
+					justify-content: space-around;
+				}
+
+				&:hover {
+					border: 1px solid #2fe1b9;
+				}
+
+				> span {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					@include br($desktop) {
+						padding-top: 32px;
+					}
+
+					> svg {
+						width: 15px;
+						height: 15px;
+						transform: rotate(45deg);
+					}
+				}
+
+				> p {
+					color: #2fe1b9;
+					font-size: 14px;
+					text-align: center;
+					width: 100%;
+					font-weight: 400;
+					padding-top: 8px;
+
+					@include br($desktop) {
+						padding-top: 0;
+					}
+				}
+			}
+		}
+		&-coin {
+			display: flex;
+			flex-direction: column;
+			min-width: 148px;
+			max-width: 148px;
+			flex: 0 0 31%;
+			height: 100px;
+			background-color: #1f2039;
+			border-radius: 8px 8px 0 0;
+			box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+			overflow: hidden;
+			margin-right: 16px;
+
+			@extend %scrollbar;
+
+			&:first-child {
+				margin-left: 32px;
+
+				@include br($desktop) {
+					margin-left: 0;
+				}
+			}
+
+			&.hide-mobile {
+				display: none;
+			}
+
+			&:hover {
+				background-color: #24253d;
+			}
+
+			&:hover &-border {
+				height: 10px;
+			}
+
+			@include br($desktop) {
+				flex: 1 1 auto;
+				width: 100%;
+				min-width: 220px;
+				max-width: 230px;
+				height: 150px;
+			}
+
+			&Container {
+				height: 100%;
+			}
+
+			&-amount {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+				padding: 16px 16px 0 0;
+
+				@include br($desktop) {
+					padding: 28px 24px 0 20px;
+				}
+
+				> span {
+					font-size: 14px;
+					line-height: 21px;
+					color: #fff;
+					flex: 0 0 auto;
+					box-sizing: content-box;
+
+					@include br($desktop) {
+						font-size: 18px;
+					}
+
+					&:first-child {
+						padding-left: 8px;
+						display: flex;
+						align-items: center;
+
+						@include br($desktop) {
+							padding-left: 0;
+						}
+					}
+
+					> span {
+						font-weight: 400;
+
+						&:last-child {
+							padding-left: 8px;
+						}
+					}
+
+					> svg {
+						fill: #fff;
+					}
+				}
+			}
+			&-value {
+				display: flex;
+				justify-content: flex-end;
+				width: 100%;
+				padding: 0 16px 0 0;
+
+				@include br($desktop) {
+					padding: 12px 24px 0 0;
+				}
+
+				> span {
+					color: white;
+					font-size: 18px;
+					line-height: 24px;
+					font-weight: 400;
+
+					@include br($desktop) {
+						font-size: 28px;
+					}
+
+					&.empty {
+						font-size: 14px;
+						font-weight: 700;
+						color: #7375b6;
+					}
+				}
+			}
+
+			&-price {
+				padding: 0 16px 0 0;
+				display: flex;
+				justify-content: flex-end;
+				flex-wrap: nowrap;
+				width: 100%;
+				overflow: visible;
+
+				@include br($desktop) {
+					padding: 12px 24px 0 0;
+				}
+
+				> span {
+					color: #707180;
+					font-size: 13px;
+					line-height: 24px;
+					font-weight: 400;
+					margin-right: 4px;
+
+					@include br($desktop) {
+						font-size: 16px;
+						margin-right: 8px;
+					}
+
+					> span {
+						margin-left: 4px;
+
+						&.up {
+							color: #2fe1b9;
+						}
+
+						&.down {
+							color: #da4167;
+						}
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+
+			&-border {
+				display: block;
+				width: 100%;
+				height: 3px;
+				transition: height 0.15s;
+			}
+		}
+		&-funds {
+			display: flex;
+			flex-direction: column;
+			min-width: 148px;
+			max-width: 148px;
+			flex: 0 0 31%;
+			height: 100px;
+			background-color: #1f2039;
+			border-radius: 8px 8px 0 0;
+			box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+			margin-right: 16px;
+			cursor: pointer;
+			overflow-y: hidden;
+
+			@include br($desktop) {
+				flex: 1 1 auto;
+				width: 100%;
+				min-width: 220px;
+				max-width: 230px;
+				height: 150px;
+			}
+
+			&.desktop,
+			&.none {
+				@include br($desktop) {
+					margin-left: 0;
+				}
+			}
+
+			&:hover {
+				background-color: #24253d;
+			}
+
+			&:hover &-border {
+				height: 10px;
+			}
+
+			&Container {
+				height: 100%;
+			}
+
+			&-fiat {
+				display: flex;
+				justify-content: flex-end;
+				width: 100%;
+				padding: 16px 16px 0 16px;
+
+				@include br($desktop) {
+					padding: 28px 24px 0 24px;
+					min-height: 56px;
+				}
+
+				> span {
+					font-size: 14px;
+					line-height: 21px;
+					color: white;
+
+					@include br($desktop) {
+						font-size: 18px;
+					}
+				}
+			}
+			&-ticker {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				padding: 16px 16px 0 16px;
+
+				@include br($desktop) {
+					padding: 32px 24px 0 24px;
+				}
+
+				> span {
+					font-size: 14px;
+					line-height: 21px;
+					color: white;
+
+					&:first-child {
+						font-weight: 700;
+						font-size: 22px;
+
+						@include br($desktop) {
+							font-size: 25px;
+						}
+					}
+
+					@include br($desktop) {
+						font-size: 18px;
+					}
+				}
+			}
+			&-pending {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				width: 100%;
+				padding: 0 16px 0 16px;
+
+				@include br($desktop) {
+					padding: 12px 24px 0 24px;
+				}
+
+				&-icon {
+					width: 18px;
+					height: 18px;
+					padding-right: 8px;
+					box-sizing: content-box;
+
+					> svg {
+						width: 18px;
+						height: 18px;
+					}
+				}
+
+				> span {
+					font-size: 13px;
+					line-height: 24px;
+					color: #707180;
+
+					@include br($desktop) {
+						font-size: 16px;
+					}
+				}
+			}
+
+			&-amount {
+				display: flex;
+				justify-content: flex-end;
+				width: 100%;
+				padding: 0 16px 0 16px;
+
+				@include br($desktop) {
+					padding: 12px 24px 0 24px;
+				}
+
+				> span {
+					font-size: 18px;
+					line-height: 24px;
+					color: white;
+
+					@include br($desktop) {
+						font-size: 28px;
+					}
+				}
+			}
+
+			&-add {
+				padding: 0 16px 0 16px;
+				display: flex;
+				justify-content: flex-end;
+				width: 100%;
+				white-space: nowrap;
+
+				@include br($desktop) {
+					padding: 8px 24px 0 24px;
+				}
+
+				> span {
+					font-size: 14px;
+					line-height: 24px;
+					font-weight: 700;
+					color: #2fe1b9;
+				}
+			}
+
+			&-border {
+				display: block;
+				width: 100%;
+				height: 3px;
+				background-color: #ffba00;
+				transition: height 0.15s;
+			}
+		}
+	}
+
+	&-step {
+		border-radius: 8px;
+		margin: 16px 32px 0 32px;
+		max-width: 600px;
+
+		@include br($tablet) {
+			margin: 16px 64px 0;
+		}
+
+		@include br($desktop) {
+			margin: 16px 32px 0 32px;
+		}
+
+		&.active {
+			margin: 16px 32px 0 32px;
+			box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.1);
+
+			@include br($tablet) {
+				margin: 16px 64px 0;
+			}
+
+			@include br($desktop) {
+				margin: 16px 32px 0 32px;
+			}
+		}
+
+		&-header {
+			position: relative;
+			background-color: transparent;
+			border-radius: 8px 8px 0 0;
+			max-width: 600px;
+
+			&.last {
+				margin-bottom: 32px;
+
+				> p {
+					border-bottom: none;
+				}
+			}
+
+			&.active {
+				background-color: #1e2137;
+
+				> p {
+					color: #fff;
+					padding: 16px 0;
+					padding-right: 8px;
+					border-bottom: 1px solid transparent;
+				}
+			}
+
+			&.no-border {
+				p {
+					border-bottom: none;
+				}
+			}
+
+			&-checkbox {
+				display: inline;
+				position: absolute;
+
+				> span {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: relative;
+					left: -15px;
+					top: 7px;
+					min-width: 32px;
+					width: 32px;
+					min-height: 32px;
+					height: 32px;
+
+					&.large {
+						width: 36px;
+						height: 36px;
+					}
+
+					> span {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						width: 100px !important;
+						height: 100px !important;
+						> svg {
+							display: inline;
+							width: 100px !important;
+							height: 100px !important;
+						}
+					}
+				}
+			}
+
+			> p {
+				color: #707180;
+				font-size: 14px;
+				line-height: 15px;
+				font-weight: 300;
+				padding: 16px 0 24px 0;
+				margin-left: 32px;
+				border-bottom: 1px solid #24253d;
+
+				@include br($desktop) {
+					border-bottom: none;
+				}
+			}
+		}
+
+		&-body {
+			display: none;
+			background-color: #24263b;
+			padding-top: 32px;
+			border-radius: 0 0 8px 8px;
+
+			&.active {
+				max-width: 600px;
+				display: block;
+			}
+
+			&.block {
+				padding-top: 0;
+			}
+
+			&Container {
+				display: block;
+				width: 100%;
+				height: auto;
+
+				> p {
+					font-size: 14px;
+					line-height: 21px;
+					font-weight: 400;
+					color: #707180;
+					padding: 16px 32px;
+
+					> span {
+						display: block;
+						padding-bottom: 8px;
+					}
+
+					> a {
+						color: #7375b6;
+						cursor: pointer;
+					}
+				}
+			}
+
+			&-actions {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				height: 60px;
+				border-top: 1px solid #14192f;
+				margin-top: 8px;
+				overflow: hidden;
+				border-radius: 0 0 8px 8px;
+
+				> button {
+					background-color: transparent;
+					width: 100%;
+					height: 100%;
+					display: block;
+					font-size: 14px;
+					border: none;
+					cursor: pointer;
+
+					&:disabled {
+						cursor: default;
+						&:hover {
+							background-color: transparent;
+						}
+					}
+
+					&.active,
+					&:active {
+						background-color: rgba(0, 0, 0, 0.12);
+					}
+
+					&:nth-child(1) {
+						border-radius: 0 0 0 8px;
+						border-right: 1px solid #14192f;
+						color: #7375b6;
+					}
+
+					&:nth-child(n + 2) {
+						border-left: 1px solid #14192f;
+					}
+
+					&:last-child {
+						border-radius: 0 0 8px 0;
+						border-right: none;
+						color: #2fe1b9;
+					}
+
+					&:hover {
+						background-color: rgba(255, 255, 255, 0.01);
+					}
+				}
+			}
+		}
+	}
+
+	&-display {
+		@include br($tablet) {
+			margin-bottom: 0;
+		}
+
+		@include br($desktop) {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row;
+			padding: 0 32px 0 32px;
+		}
+
+		&-activity {
+			display: block;
+			height: auto;
+			width: 100%;
+			padding-right: 16px;
+
+			&-recent {
+				display: none;
+				padding: 32px 16px 0 32px;
+
+				@include br($desktop) {
+					display: block;
+					padding: 32px 48px 0 72px;
+					width: 100%;
+					padding: 32px 16px 0 0;
+					margin-right: 16px;
+				}
+
+				&-header {
+					display: flex;
+					justify-content: space-between;
+					border-bottom: 1px solid #24253d;
+					padding: 0 0 8px 0;
+
+					@include br($desktop) {
+						padding-right: 32px;
+					}
+
+					> p {
+						color: #707180;
+						font-size: 18px;
+						line-height: 21px;
+					}
+
+					> a,
+					> div {
+						color: #7375b6;
+						font-size: 14px;
+						line-height: 21px;
+						cursor: pointer;
+
+						&:hover {
+							color: #615ca3;
+						}
+					}
+				}
+			}
+			&-pending {
+				display: block;
+				padding: 32px 16px 0 32px;
+
+				@include br($tablet) {
+					padding: 32px 48px 0 72px;
+				}
+
+				@include br($desktop) {
+					width: 100%;
+					padding: 32px 16px 0 0;
+					margin-right: 16px;
+				}
+
+				&-header {
+					display: flex;
+					justify-content: space-between;
+					border-bottom: 1px solid #24253d;
+					padding: 0 0 8px 0;
+
+					@include br($desktop) {
+						padding-right: 32px;
+					}
+
+					> p {
+						color: #707180;
+						font-size: 18px;
+						line-height: 21px;
+					}
+
+					> a,
+					> div {
+						color: #7375b6;
+						font-size: 14px;
+						line-height: 21px;
+						cursor: pointer;
+
+						&:hover {
+							color: #615ca3;
+						}
+					}
+				}
+			}
+		}
+
+		&-market_list {
+			display: block;
+			height: auto;
+			width: 100%;
+			padding-top: 32px;
+			padding-bottom: 64px;
+
+			@include br($desktop) {
+				width: 100%;
+				padding: 32px 0 0 16px;
+				padding-bottom: 0;
+			}
+
+			&-header {
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid #24253d;
+				padding: 0 0 8px 0;
+				margin: 0 32px;
+
+				@include br($tablet) {
+					margin: 0 64px 0 72px;
+				}
+
+				@include br($desktop) {
+					margin: 0;
+					padding-right: 32px;
+				}
+
+				> p {
+					color: #707180;
+					font-size: 18px;
+					line-height: 21px;
+				}
+
+				> a {
+					color: #7375b6;
+					font-size: 14px;
+					line-height: 21px;
+					cursor: pointer;
+					&:hover {
+						color: #615ca3;
+					}
+				}
+			}
+		}
+	}
+}

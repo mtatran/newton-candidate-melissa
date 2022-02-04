@@ -1,0 +1,145 @@
+.dialog {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+
+	@include br($desktop) {
+		position: absolute;
+	}
+
+	&.solid {
+		background-color: #1f2039;
+	}
+
+	&.no-block {
+		position: absolute;
+		display: block;
+		left: 50%;
+		top: auto;
+		width: auto;
+		height: auto;
+		overflow: visible;
+
+		> div {
+			position: relative;
+			left: -50%;
+			margin-top: 50px;
+		}
+	}
+
+	&Popup {
+		max-width: 280px;
+	}
+
+	&Container {
+		animation: squeeze-up 0.15s ease-out;
+		background-color: #22233f;
+		width: 100%;
+		max-width: 280px;
+		border-radius: 10px;
+		margin: 16px;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.08), 0 2px 8px 2px rgba(0, 0, 0, 0.16);
+
+		&.stop-animation {
+			animation: none;
+		}
+
+		&.modal {
+			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 2px 8px 1px rgba(0, 0, 0, 0.08);
+		}
+
+		@include br($desktop) {
+			box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.16), 0 2px 8px 2px rgba(0, 0, 0, 0.3);
+			position: relative;
+		}
+	}
+
+	&-semantics {
+		padding: 32px 26px;
+
+		&-header {
+			color: #7375b6;
+			padding-bottom: 16px;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+		}
+
+		&-description {
+			color: white;
+			font-size: 0.8em;
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			flex-direction: column;
+
+			> div {
+				display: flex;
+				justify-content: center;
+				text-align: center;
+				flex-direction: column;
+				padding: 0 22px;
+				&:nth-child(2) {
+					padding-top: 16px;
+				}
+				> p {
+					color: #707180;
+				}
+				> span {
+					word-break: break-all;
+				}
+			}
+		}
+	}
+
+	&-commands {
+		display: flex;
+		border-top: 1px solid #19192b;
+
+		&-cancel {
+			color: #7375b6;
+			flex: 1 1 50%;
+			display: flex;
+			justify-content: center;
+			cursor: pointer;
+
+			&:active,
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.15);
+			}
+		}
+
+		&-ok {
+			color: #2fe1b9;
+			flex: 1 1 50%;
+			display: flex;
+			justify-content: center;
+			border-left: 1px solid #19192b;
+
+			&.active {
+				cursor: pointer;
+
+				&.enter,
+				&:active,
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.15);
+				}
+			}
+		}
+
+		> div {
+			padding: 16px 24px;
+		}
+	}
+}

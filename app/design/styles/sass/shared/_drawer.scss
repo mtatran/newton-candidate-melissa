@@ -1,0 +1,190 @@
+.drawer {
+	width: 0;
+	position: relative;
+
+	&-funds {
+		&-icon {
+			padding: 32px 32px;
+			cursor: pointer;
+			height: 88px;
+			width: 88px;
+			position: relative;
+			transition: transform 0.1s;
+
+			> div {
+				> svg {
+					transition: transform 0.1s;
+				}
+			}
+
+			> svg {
+				transition: transform 0.1s;
+			}
+
+			&:hover {
+				> div {
+					> svg {
+						position: relative;
+						transform: scale(1.2);
+					}
+				}
+
+				> svg {
+					position: relative;
+					transform: scale(1.2);
+				}
+			}
+
+			&.active {
+				background-color: #1f2039;
+				position: relative;
+
+				> div {
+					> svg {
+						transform: scale(1.2);
+					}
+				}
+
+				> svg {
+					transform: scale(1.2);
+				}
+
+				&:hover {
+					> div {
+						> svg {
+							transform: scale(1.2);
+						}
+					}
+
+					> svg {
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+
+		&-open {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			@include br($desktop) {
+				left: initial;
+			}
+
+			//IE11 specific css
+			@media all and (-ms-high-contrast: none) {
+				@include br($desktop) {
+					left: calc(100% - 88px);
+				}
+			}
+		}
+	}
+
+	&Sidebar {
+		height: 100vh;
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+
+		&.active {
+			@include br($desktop) {
+				background-color: #141a2e;
+			}
+		}
+	}
+
+	&Background {
+		width: 0;
+		transition: opacity 400ms ease-out;
+		opacity: 0;
+
+		&.active {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			opacity: 1;
+			min-height: 100vh;
+			height: auto;
+			width: 100vw;
+			background-color: #141a2e;
+
+			@include br($tablet) {
+				background-color: #464a60;
+			}
+
+			@include br($desktop) {
+				background-color: rgba(26, 21, 53, 0.657);
+			}
+		}
+
+		&.closing {
+			opacity: 0;
+		}
+	}
+
+	&Container {
+		width: 0;
+
+		@include br($desktop) {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+
+		//IE11 specific css
+		@media all and (-ms-high-contrast: none) {
+			@include br($desktop) {
+				flex-direction: row-reverse;
+			}
+		}
+
+		&.active {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			min-height: 100vh;
+			height: auto;
+			width: 100vw;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+
+			@include br($tablet) {
+				padding-bottom: 48px;
+			}
+
+			@include br($desktop) {
+				padding: 0;
+				min-height: 0;
+				flex-direction: row;
+				justify-content: flex-end;
+				position: relative;
+				left: -100vw;
+			}
+
+			> div {
+				width: auto;
+				max-width: 600px;
+
+				@include br($desktop) {
+					width: auto;
+					max-width: none;
+				}
+			}
+		}
+	}
+
+	&Bar {
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+
+		@include br($desktop) {
+			height: 100%;
+		}
+	}
+}

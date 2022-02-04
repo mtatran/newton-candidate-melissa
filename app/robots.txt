@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /login-verification
+Disallow: /dashboard
+Disallow: /market
+Disallow: /activity-list

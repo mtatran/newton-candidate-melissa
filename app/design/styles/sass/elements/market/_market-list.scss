@@ -1,0 +1,276 @@
+.market_list {
+	display: block;
+	width: 100%;
+	padding: 0 32px;
+
+	@include br($tablet) {
+		padding-top: 16px;
+		padding: 0 64px 0 72px;
+	}
+
+	@include br($desktop) {
+		padding: 0 32px;
+	}
+
+	&.list {
+		@include br($desktop) {
+			padding: 56px 40px 0 40px;
+		}
+	}
+
+	> h2 {
+		display: none;
+		color: white;
+		font-size: 32px;
+		margin-bottom: 16px;
+
+		@include br($desktop) {
+			display: block;
+		}
+	}
+
+	&.list &-item {
+		&Container {
+			padding-right: 0;
+		}
+	}
+
+	@include br($desktop) {
+		padding: 0;
+	}
+
+	&Container {
+		display: block;
+		width: 100%;
+
+		&.full {
+			padding: 0 0 32px 8px;
+		}
+	}
+
+	&-item {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 10px 16px 10px 0;
+		cursor: pointer;
+		background-color: #1f2039;
+		border-radius: 8px;
+		margin: 16px 0 16px 8px;
+		box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+
+		&:active {
+			background-color: #24253c;
+			@include br($desktop) {
+				background-color: transparent;
+			}
+		}
+
+		&:last-child {
+			> div:last-child {
+				border-bottom: none;
+			}
+
+			&.static {
+				> div:last-child {
+					border-bottom: none;
+					cursor: default;
+				}
+
+				&:hover {
+					> div {
+						> span {
+							> span {
+								&:first-child {
+									cursor: default;
+									color: white;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@include br($tablet) {
+			margin: 20px 0;
+		}
+
+		@include br($desktop) {
+			align-items: flex-start;
+			padding: 16px 0 0 0;
+			border-radius: 0px;
+			margin: 0;
+			box-shadow: none;
+			background-color: transparent;
+		}
+
+		&.static {
+			border-bottom: none;
+			cursor: default;
+
+			&:hover {
+				> div {
+					> span {
+						> span {
+							&:first-child {
+								cursor: default;
+								color: white;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&.slim {
+			padding-right: 16px;
+		}
+
+		&-empty {
+			display: flex;
+			flex-direction: column;
+			padding: 8px 0;
+			font-size: 14px;
+			line-height: 21px;
+			color: #707180;
+		}
+
+		&-icon {
+			display: inline-block;
+			width: 32px;
+			height: 32px;
+
+			&-main {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				right: 50%;
+				border-radius: 50%;
+				> svg {
+					width: 18px;
+					height: 18px;
+				}
+			}
+		}
+
+		&Container {
+			width: 100%;
+			border-bottom: none;
+			display: flex;
+			justify-content: space-between;
+
+			@include br($desktop) {
+				padding-right: 32px;
+				padding-bottom: 16px;
+				border-bottom: 1px solid #24253d;
+
+				&.slim {
+					padding-right: 0;
+				}
+			}
+		}
+
+		&-title {
+			font-size: 14px;
+			line-height: 20px;
+			color: #fff;
+			display: flex;
+			flex-direction: column;
+
+			> span {
+				letter-spacing: 0.5px;
+				transition: 0.15s;
+
+				&:first-child {
+					font-weight: 700;
+				}
+
+				@include br($desktop) {
+					line-height: 21px;
+					padding-bottom: 2px;
+				}
+			}
+
+			&-ticker {
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 18px;
+				color: #707180;
+			}
+		}
+
+		&:hover {
+			> div {
+				> span {
+					> span {
+						&:first-child {
+							@include br($desktop) {
+								color: #7375b6;
+							}
+						}
+					}
+				}
+			}
+		}
+		&-description {
+			display: flex;
+			flex-direction: column-reverse;
+			justify-content: flex-end;
+			padding: 0 0 0 16px;
+
+			&-prices {
+				white-space: nowrap;
+				display: flex;
+				justify-content: center;
+
+				@include br($desktop) {
+					justify-content: flex-end;
+				}
+
+				&-amount {
+					font-size: 14px;
+					line-height: 20px;
+					color: white;
+					padding: 0 0 0 8px;
+					letter-spacing: 0.75px;
+
+					@include br($desktop) {
+						line-height: 21px;
+					}
+				}
+
+				&-variation {
+					font-size: 14px;
+					color: white;
+					padding: 0 0 0 8px;
+					padding-right: 4px;
+					letter-spacing: 0.75px;
+
+					> span {
+						&.increase {
+							color: #2fe1b9;
+						}
+
+						&.decrease {
+							color: #da4167;
+						}
+					}
+				}
+			}
+
+			&-icon {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				line-height: 18px;
+
+				> svg {
+					width: 15px;
+					height: 12px;
+				}
+			}
+		}
+	}
+}

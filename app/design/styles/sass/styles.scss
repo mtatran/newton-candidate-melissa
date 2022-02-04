@@ -1,0 +1,68 @@
+/* Import Fonts */
+@font-face {
+	font-family: 'LL Circular';
+	src: local('LL Circular'),
+		url('https://newton-webapp-static-assets.s3.ca-central-1.amazonaws.com/fonts/lineto-circular-black.woff2')
+			format('woff2'),
+		url('https://newton-webapp-static-assets.s3.ca-central-1.amazonaws.com/fonts/lineto-circular-black.woff')
+			format('woff');
+	font-weight: 900;
+	font-display: swap;
+	unicode-range: U+000-07F;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LL Circular';
+	src: local('LL Circular'),
+		url('https://newton-webapp-static-assets.s3.ca-central-1.amazonaws.com/fonts/lineto-circular-bold.woff2')
+			format('woff2'),
+		url('https://newton-webapp-static-assets.s3.ca-central-1.amazonaws.com/fonts/lineto-circular-bold.woff')
+			format('woff');
+	font-weight: 700;
+	font-display: swap;
+	unicode-range: U+000-07F;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LL Circular';
+	src: local('LL Circular'),
+		url('https://newton-webapp-static-assets.s3.ca-central-1.amazonaws.com/fonts/lineto-circular-book.woff2')
+			format('woff2'),
+		url('https://newton-webapp-static-assets.s3.ca-central-1.amazonaws.com/fonts/lineto-circular-book.woff')
+			format('woff');
+	font-weight: normal;
+	font-display: swap;
+	unicode-range: U+000-07F;
+	font-style: normal;
+}
+
+/* Import Partials First */
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/extends';
+@import 'partials/normalize';
+@import 'partials/animations';
+
+/* Import Shared Elements */
+@import 'shared/header';
+@import 'shared/forms';
+@import 'shared/menu';
+@import 'shared/nav';
+@import 'shared/dialog';
+@import 'shared/offscreen';
+@import 'shared/offline';
+@import 'shared/drawer';
+@import 'shared/tooltip';
+@import 'shared/logo';
+@import 'shared/popup';
+@import 'shared/prompt';
+
+/* Import Pages and Components Last */
+@import 'elements/components/signin';
+@import 'elements/components/dashboard';
+@import 'elements/components/market';
+@import 'elements/forms/twofaForm';
+@import 'elements/market/market-list';
+@import 'elements/tfaForm';

@@ -1,0 +1,508 @@
+.market {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	min-height: 100%;
+
+	@include br($desktop) {
+		margin-bottom: 0;
+		min-height: 100vh;
+	}
+
+	&Container {
+		display: block;
+		width: 100%;
+		padding: 0 0 48px;
+		min-height: 100%;
+		background-color: #141a2e;
+		padding-bottom: 96px;
+
+		@include br($tablet) {
+			min-height: 100vh;
+			padding-top: 0;
+			padding-bottom: 112px;
+		}
+
+		@include br($desktop) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			min-width: 100%;
+			border-radius: 0;
+			box-shadow: none;
+			background-color: transparent;
+			padding: 0;
+			margin-bottom: 0;
+			min-height: 100%;
+			padding-bottom: 16px;
+		}
+
+		> h1 {
+			font-size: 28px;
+			font-weight: 700;
+			color: white;
+			line-height: 30px;
+			margin-bottom: 16px;
+		}
+	}
+	&-gradient {
+		display: block;
+		width: 100%;
+		height: 0;
+		&-logo {
+			display: none;
+			@include br($desktop) {
+				position: relative;
+				right: 32px;
+				top: 18px;
+				display: flex;
+				justify-content: flex-end;
+				margin: 0 auto;
+				width: 100%;
+				height: 0;
+				> svg {
+					display: inline-block;
+					width: 400px;
+					height: 90px;
+					transform: translateY(-100%);
+				}
+			}
+		}
+		&-fill {
+			display: block;
+			position: relative;
+			width: 100%;
+			height: 80px;
+			background-image: linear-gradient(to bottom, #1e2137, #141a2e);
+
+			@include br($desktop) {
+				top: 8px;
+			}
+		}
+	}
+
+	&-header {
+		padding-top: 32px;
+		padding-bottom: 32px;
+
+		@include br($tablet) {
+			padding-top: 48px;
+			padding-bottom: 48px;
+		}
+		@include br($desktop) {
+			width: 100vw;
+			position: relative;
+			height: 80px;
+			padding-bottom: 0;
+			padding-top: 0px;
+
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			z-index: 2;
+		}
+
+		&.active {
+			padding-top: 18px;
+			padding-bottom: 16px;
+
+			@include br($desktop) {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+
+		&-wrapper {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			padding: 0 32px;
+
+			@include br($tablet) {
+				padding: 0 64px;
+			}
+
+			@include br($desktop) {
+				flex-direction: row;
+				align-items: center;
+
+				max-width: 1100px;
+				width: 100%;
+				padding: 16px 32px 16px 32px;
+			}
+
+			&.active {
+				justify-content: center;
+
+				@include br($desktop) {
+					justify-content: flex-start;
+				}
+			}
+
+			&-logo {
+				display: none;
+				padding-right: 16px;
+				cursor: pointer;
+				> svg {
+					g {
+						fill: #2fe1b9;
+					}
+				}
+				@include br($desktop) {
+					display: block;
+				}
+			}
+
+			h1 {
+				display: block;
+				font-size: 28px;
+				font-weight: 700;
+				color: white;
+				line-height: 30px;
+				opacity: 1;
+				transition: opacity 0.25s ease-in;
+				overflow: hidden;
+
+				@include br($desktop) {
+					line-height: 26px;
+					font-size: 28px;
+					margin-bottom: 0;
+					display: none;
+				}
+
+				&.active {
+					opacity: 0;
+					transition: none;
+
+					> span {
+						white-space: nowrap;
+						&:nth-child(2) {
+							display: none;
+						}
+					}
+				}
+
+				> span {
+					display: block;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					line-height: 1.2;
+					@include br($tablet) {
+						display: inline;
+					}
+				}
+
+				&.small {
+					position: absolute;
+					left: 0;
+					right: 0;
+					font-size: 21px;
+					text-align: center;
+					opacity: 0;
+					transition: none;
+					font-size: 16px;
+					font-weight: 400;
+					max-width: 55%;
+					margin: 0 auto;
+					line-height: 20px;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					> span {
+						width: 100%;
+						display: inline;
+						overflow: hidden;
+						line-height: 1.2;
+						&:nth-child(2) {
+							padding-top: 0;
+							display: inline;
+						}
+					}
+
+					&.active {
+						transition: opacity 0.25s ease-in;
+						opacity: 1;
+					}
+
+					@include br($desktop) {
+						display: none;
+					}
+				}
+			}
+
+			> p {
+				color: #7375b6;
+				display: none;
+
+				@include br($desktop) {
+					display: block;
+				}
+				span {
+					color: #7375b6;
+					font-size: 14px;
+					line-height: 21px;
+					padding: 0 8px;
+					cursor: pointer;
+					&:hover {
+						background-color: transparent;
+						color: #615ca3;
+					}
+
+					&.noClick {
+						color: #615ca3;
+						cursor: default;
+
+						&:hover {
+							color: #615ca3;
+						}
+					}
+				}
+			}
+
+			&-greetings {
+				&.greet {
+					width: calc(100% - 64px);
+				}
+
+				@include br($mini) {
+					width: calc(100% - 32px);
+				}
+
+				@include br($tablet) {
+					padding: 16px 0 16px 0;
+					width: 100%;
+				}
+			}
+			&-username {
+				padding-top: 8px;
+				@include br($tablet) {
+					padding: 16px 8px 16px 0;
+				}
+			}
+		}
+
+		&.details {
+			padding: 32px 32px 8px;
+			padding-top: 0;
+			@include br($tablet) {
+				padding: 0px 64px 32px;
+			}
+			@include br($desktop) {
+				padding: 24px 64px 16px 32px;
+			}
+		}
+
+		&.details &-wrapper {
+			padding: 0;
+			flex-direction: row;
+			justify-content: space-between;
+
+			@include br($desktop) {
+				justify-content: flex-start;
+			}
+
+			&-icon {
+				display: block;
+				padding-right: 16px;
+				cursor: pointer;
+				width: 30px;
+				height: 30px;
+				> svg {
+					width: 18px;
+					height: 18px;
+					g {
+						fill: #2fe1b9;
+					}
+				}
+
+				@include br($desktop) {
+					display: none;
+				}
+			}
+
+			&-coin {
+				display: none;
+				@include br($desktop) {
+					display: flex;
+					align-items: center;
+					padding: 0 0 0 32px;
+
+					&-logo {
+						display: flex;
+						align-items: center;
+						padding-right: 8px;
+
+						&-icon {
+							display: inline-block;
+							width: 32px;
+							height: 32px;
+							transform: scale(0.9);
+
+							> span {
+								display: flex;
+								justify-content: center;
+								align-items: center;
+								border-radius: 50%;
+
+								> svg {
+									width: 18px;
+									height: 18px;
+								}
+							}
+						}
+					}
+
+					@include br($desktop) {
+						font-size: 28px;
+						display: none;
+					}
+
+					h1 {
+						display: block;
+						font-size: 18px;
+						font-weight: 700;
+						color: white;
+						line-height: 30px;
+						margin-bottom: 0;
+
+						@include br($desktop) {
+							margin-bottom: 0;
+						}
+						> span {
+							display: block;
+							@include br($desktop) {
+								display: inline;
+							}
+						}
+					}
+				}
+			}
+
+			p {
+				color: #7375b6;
+				display: none;
+
+				@include br($desktop) {
+					display: block;
+				}
+				span {
+					color: #7375b6;
+					font-size: 14px;
+					line-height: 21px;
+					padding: 0 8px;
+					cursor: pointer;
+					&:hover {
+						background-color: transparent;
+						color: #615ca3;
+					}
+
+					&:last-child {
+						color: #615ca3;
+						cursor: default;
+
+						&:hover {
+							color: #615ca3;
+						}
+					}
+
+					&.noClick {
+						color: #615ca3;
+						cursor: default;
+
+						&:hover {
+							color: #615ca3;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&-tabs {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0 16px 8px 16px;
+
+		@include br($mini) {
+			justify-content: flex-start;
+			padding: 0 40px 8px 40px;
+		}
+
+		@include br($tablet) {
+			padding: 0 72px 8px 72px;
+		}
+
+		@include br($desktop) {
+			display: none;
+			padding: 0 32px 8px 8px;
+		}
+		&-item {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 0;
+			cursor: pointer;
+			@include br($mini) {
+				margin-right: 24px;
+			}
+			&.right::after {
+				transition: transform 0.25s ease-out;
+				transform: translateX(45px);
+			}
+			&.left::after {
+				transition: transform 0.25s ease-out;
+				transform: translateX(-45px);
+			}
+			&.active {
+				color: white;
+				pointer-events: none;
+				&.right::after {
+					animation: slide-left 0.1s ease-in-out;
+				}
+				&.left::after {
+					animation: slide-right 0.1s ease-in-out;
+				}
+				&::after {
+					content: '';
+					position: relative;
+					top: 8px;
+					bottom: 0;
+					display: block;
+					width: calc(100% + 16px);
+					min-height: 2px;
+					height: 2px;
+					border-radius: 5px;
+					background-color: #7375b6;
+					transform: translateX(0);
+				}
+			}
+
+			&:active {
+				> span {
+					color: #707180;
+				}
+			}
+
+			> span {
+				font-size: 12px;
+				line-height: 16px;
+				font-weight: 400;
+				color: white;
+				letter-spacing: 1px;
+				padding: 0 8px;
+				@include br($tablet) {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	&-view {
+		padding-top: 24px;
+		@include br($desktop) {
+			padding-top: 16px;
+		}
+	}
+}
