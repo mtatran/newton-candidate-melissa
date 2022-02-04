@@ -57,6 +57,7 @@ const ActivitySection = ({ max, padding, scroll, paginated }) => {
 	const [offset, setOffset] = useState(0);
 	const [limit] = useState(max || PAGINATION_LIMIT);
 	const [fetching, setFetching] = useState(true);
+	const [isActive, setisActive] = useState(false);
 
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
@@ -65,6 +66,79 @@ const ActivitySection = ({ max, padding, scroll, paginated }) => {
 	const activeFiat = useSelector(({ exchange }) => exchange.activeFiat);
 	const symbolFiat = useSelector(({ exchange }) => exchange.symbols[exchange.activeFiat]);
 	const coinList = useSelector(({ exchange }) => exchange.name);
+
+	const mockDetailsData = [
+		{
+			id: '4',
+			bank_account: {},
+			created: '2021-10-06T16:35:00.277033-04:00',
+			fee: '0.00000000',
+			from_amount: '10.00000000',
+			from_asset: 'CAD',
+			is_api: false,
+			quoted_asset_cad_price: '0.00000000',
+			reference: '',
+			to_amount: '0.00000000',
+			to_asset: '',
+			type: 'ADJUSTMENT'
+		},
+		{
+			id: '3',
+			bank_account: {},
+			created: '2021-10-27T19:53:05.498782-04:00',
+			fee: '50.00000000',
+			from_amount: '-150.000000000',
+			from_asset: 'BTC',
+			is_api: false,
+			quoted_asset_cad_price: '0.00000000',
+			reference: '0xc159f8f384b84b7028f91e4b44fad8c87a9010b47cb3e62ded0620e6cb0fb54b',
+			to_amount: '0.00000000',
+			to_asset: '',
+			type: 'WITHDRAWAL_COMPLETED'
+		},
+		{
+			id: '2',
+			bank_account: {},
+			created: '2021-11-16T11:24:08.355300-05:00',
+			fee: '0.00000000',
+			from_amount: '294.18947460',
+			from_asset: 'BTC',
+			is_api: false,
+			quoted_asset_cad_price: '0.00000000',
+			reference: '',
+			to_amount: '0.00000000',
+			to_asset: '',
+			type: 'DEPOSITED'
+		},
+		{
+			id: '1',
+			bank_account: {},
+			created: '2021-10-04T16:35:00.277033-04:00',
+			fee: '0.00000000',
+			from_amount: '25.00000000',
+			from_asset: 'CAD',
+			is_api: false,
+			quoted_asset_cad_price: '0.00000000',
+			reference: '',
+			to_amount: '0.00000000',
+			to_asset: '',
+			type: 'REFERRAL_REWARD'
+		},
+		{
+			id: '0',
+			bank_account: {},
+			created: '2021-11-19T20:12:22.309698-05:00',
+			fee: '0.00000000',
+			from_amount: '500.00000000',
+			from_asset: 'CAD',
+			is_api: false,
+			quoted_asset_cad_price: '1.48563000',
+			reference: '',
+			to_amount: '336.55755471',
+			to_asset: 'BTC',
+			type: 'TRADE'
+		}
+	];
 
 	useEffect(() => {
 		setFetching(true);
@@ -237,9 +311,65 @@ const ActivitySection = ({ max, padding, scroll, paginated }) => {
 
 		//TO DO: Handle action details in the UI
 		//TO DO: Handle details style and UX
-		return (
-			<_item key={key} onClick={() => dispatch(getDetails(id))}>
+a
+
+		const openContent = (
+		<>
+		<div className="openContentItem">
 				<_icon>
+					<_main $activityTrade={isActivityTradeMain} $adjustment={isAdjustment}>
+						{icon}
+					</_main>
+					{isSecondary && (
+						<_secondary $activityTrade={isActivityTrade} $small={isSmall}>
+							{cryptoIcon}
+						</_secondary>
+					)}
+				</_icon>
+				<_item_container>
+					<div className = "containerEl">
+					<_title>
+						<span>
+							{mockDetailsData[id].from_asset}
+						</span>
+					</_title>
+					<_description>
+						<span>
+							{mockDetailsData[id].from_amount}
+						</span>
+					</_description>
+					</div>
+					<div className = "containerEl">
+					<_title>
+						<span>
+							{mockDetailsData[id].to_asset}
+						</span>
+					</_title>
+					<_description>
+						<span>
+							{mockDetailsData[id].toAmount}
+						</span>
+					</_description>
+					</div>
+					<div className = "containerEl">
+					<_title>
+						<span>
+							Date
+						</span>
+					</_title>
+					<_description>
+						<span>
+							<_date>{dateAgo}</_date>
+						</span>
+					</_description>
+					</div>
+				</_item_container>
+		</div>
+		</>	
+		)
+		const closedContent = (
+		<>
+		<_icon>
 					<_main $activityTrade={isActivityTradeMain} $adjustment={isAdjustment}>
 						{icon}
 					</_main>
@@ -271,6 +401,11 @@ const ActivitySection = ({ max, padding, scroll, paginated }) => {
 						{amount ? <_amount>{floorSymbol(amount, decimal, symbol, false, true)}</_amount> : null}
 					</_description>
 				</_item_container>
+		</>)
+
+		return (
+			<_item key={key} onClick={() => {setisActive(!isActive);dispatch(getDetails(id))}}>
+				{isActive? openContent : closedContent}
 			</_item>
 		);
 	};
